@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Code</title>
+  <%=image_tag("logoo.jpg",:size => "600x500")%>
+
+
+<body>
+  <aside>
+    <h1> Welcome to Class Code</h1>
+    <%= form_for(@admin, url: login_path, html: {class: "form-signin justify-content-center"}) do |f| %>
+      <%= f.label :username, class: 'sr-only' %>
+      <%= f.text_field :username, type: 'username', placeholder: 'Username',   autofocus: true, required: true %>
+      <br><br><%= f.label :password, class: 'sr-only' %>
+      <%= f.password_field :password,placeholder: 'Password', required: true %>
+      <div class="checkbox mb-3">
+        <label>
+          <br><input type="checkbox" value="remember-me"> Remember me</input>
+        </label>
+      </div><br>
+      <%= f.button "Log in", class: "btn btn-lg btn-primary btn-block" %>
+    <% end %>
+  </aside>
+</body>
+</html>
+
+
+  <style>
+  body{
+    background-color: #FFFACD;
+    margin: auto;
+  }
+  aside{
+    margin-left: 65%;
+    margin-top: -25%;
+    width: 25%;
+    height:30%;
+    background-color:light green;
+    box-shadow:2% 5% 5%;
+    text-align:center;
+    padding:1%;
+    border: 2px black solid;
+    background-color:  	#FFF0F5;
+  }
+  input[type=text]:focus, input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+  	   width: auto;
+      padding: 2%;
+      margin:auto;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+  }
+  body {
+  	font-family: Arial, Helvetica, sans-serif;
+  	box-sizing: border-box;
+  }
+  button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 5% 10%;
+      margin: 4% 0;
+      border: none;
+      cursor: pointer;
+      width: 90%;
+      opacity: 0.9;
+  }
+  button:hover {
+      opacity:1;
+  }
+  </style>

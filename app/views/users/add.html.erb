@@ -1,0 +1,93 @@
+<body>
+
+    <title>Class Code</title>
+
+  <center><b>ADD STUDENT</b></center>
+  <div class="container">
+
+  <%= form_for(:user , url: users_add_path) do |f| %>
+  	<div class="form-group">
+  	<%= f.label :studentnum %><br>
+  	<%= f.text_field :studentnum, class: 'form-control col-xl-10 col-sm-6 mb-3' %>
+  	</div>
+
+  	<div class="form-group">
+  		<%= f.label :firstname %><br>
+  		<%= f.text_field :firstname,:cols => 30, :rows => 2 , style: 'resize:none;', class: 'form-control col-xl-10 col-sm-6 mb-3' %>
+  	</div>
+
+  	<div class="form-group">
+  	<%= f.label :middlename %><br>
+  	<%= f.text_field :middlename, class: 'form-control col-xl-10 col-sm-6 mb-3' %>
+  	</div>
+
+    <div class="form-group">
+  	<%= f.label :lastname %><br>
+  	<%= f.text_field :lastname, class: 'form-control col-xl-10 col-sm-6 mb-3' %>
+  	</div>
+
+    <div class="form-group">
+  	<%= f.label :sectionname %><br>
+  	<%= f.text_field :sectionname, class: 'form-control col-xl-10 col-sm-6 mb-3' %>
+  	</div>
+
+    <div class="form-group">
+  	<%= f.label :password %><br>
+  	<%= f.password_field :password, class: 'form-control col-xl-10 col-sm-6 mb-3' %>
+  	</div>
+
+
+
+
+  		<br><br><%= f.submit "Sign up", class: "col-xl-6 col-sm-6 mb-3 btn btn-primary btn-block mt-2 mx-2" %>
+  		<% end %>
+
+
+
+  </form>
+</div>
+
+
+  <style>
+  body{
+    background-color: #FFFACD;
+    margin: auto;
+  }
+  center{
+    font-size: 25pt;
+    margin-top: 3%
+  }
+  button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 3% 3%;
+      margin: 2% 0;
+      border: none;
+      cursor: pointer;
+      width: 30%;
+      opacity: 0.9;z
+  }
+  .container{
+    margin-left: 35%;
+    margin-top: 5%;
+    width: 25%;
+    height:40%;
+    background-color:light green;
+    box-shadow:2% 5% 5%;
+    text-align:center;
+    padding:5%;
+    border: 2px black solid;
+    background-color:  	#FFF0F5;
+  }
+  input[type=text]:focus {
+      background-color: #ddd;
+      outline: none;
+  	   width: auto;
+      padding: 2%;
+      margin:auto;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+  }
+  </style>
+</body>
