@@ -5,6 +5,7 @@ class User < ApplicationRecord
   validates_uniqueness_of :studentnum
 
 
+
   validates :studentnum, presence: true
   validates :firstname, presence: true
    validates :middlename, presence: true
