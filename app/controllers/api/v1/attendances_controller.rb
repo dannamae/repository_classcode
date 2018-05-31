@@ -12,12 +12,13 @@ module Api
       end
 
       def create
-        attendance = Attendance.new(attendance_params)
-
-        if attendance.save
-          render json: {status: 'SUCCESS', message:'PROFILE SAVED', data:attendance},status: :ok
-        else
-          render json: {status: 'ERROR', message:'PROFILE NOT SAVED', data:attendance.errors},status: :unprocessable_entity
+        if @current_user = User.find_by(studentnum: params[:studentnum])
+          attendance = @current_user.attendances.new(attendance_params)
+          if attendance.save
+            render json: {status: 'SUCCESS', message:'PROFILE SAVED', data:attendance},status: :ok
+          else
+            render json: {status: 'ERROR', message:'PROFILE NOT SAVED', data:attendance.errors},status: :unprocessable_entity
+          end
         end
       end
 
@@ -39,7 +40,7 @@ module Api
       private
 
       def attendance_params
-        params.permit(:date, :time, :studentnum, :firstname, :lastname, :attendance)
+        params.permit(:user_id,:date, :attendance)
       end
     end
   end
