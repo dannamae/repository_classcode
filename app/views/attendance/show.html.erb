@@ -1,0 +1,60 @@
+<body>
+    <title>Class Code</title>
+    <center>
+  <center><p>REGISTERED STUDENTS</p></center>
+  <table>
+  <tr>
+    <th>Date</th>
+    <th>Attendance</th>
+  </tr>
+
+  <% @attendances = Attendance.all%>
+  <% @attendances.each do |attendance| %>
+
+  <tr>
+      <td> <%=attendance.date %> </td>
+      <td> <%=attendance.attendance %> </td>
+  </tr>
+  <% end %>
+  </table>
+  <%= link_to '<button type="button">Back</button>'.html_safe, users_index_path %>&nbsp;
+
+</center>
+
+  <style>
+  body{
+    background-color: #FFFACD;
+    margin: auto;
+  }
+  button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 1% 3%;
+      margin: 2% 0;
+      border: none;
+      cursor: pointer;
+      width: 15%;
+      opacity: 0.9;z
+  }
+  table{
+    width: 80%;
+    padding: 3%;
+    border: 1px solid black;
+    margin-left:2%;
+    height: inherit;
+  }
+  th{
+    font-size: 15pt;
+    text-align: left;
+    border: 1px solid black;
+  }
+  td{
+      border: 1px solid black;
+      font-size: 12pt;
+  }
+  p{
+    margin-top: 5%;
+    font-size: 30pt;
+  }
+  </style>
+</body>
