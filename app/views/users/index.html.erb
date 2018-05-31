@@ -1,6 +1,6 @@
 <body>
     <title>Class Code</title>
-    <center>
+  <center>
   <center><p>REGISTERED STUDENTS</p></center>
   <table>
   <tr>
@@ -8,7 +8,7 @@
     <th>First Name</th>
     <th>Middle Name</th>
     <th>Last Name</th>
-    <th>Delete</th>
+    <th>Attendance</th>
   </tr>
 
   <% @users = User.all%>
@@ -19,7 +19,7 @@
       <td> <%=user.firstname %> </td>
       <td><%=user.middlename %> </td>
       <td><%=user.lastname %> </td>
-      <td><%= link_to "delete", users_index_path(user), :method => :delete,:id => user.id  %></td>
+      <td><%= link_to "Show Attendance", attendance_show_path(attendance_show_url) %></td>
 
 
     </tr>
@@ -47,6 +47,7 @@
       width: 15%;
       opacity: 0.9;z
   }
+
   table{
     width: 80%;
     padding: 3%;
