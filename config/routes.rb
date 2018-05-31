@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  delete 'logout', to: 'sessions#destroy'
+  post 'users/add' ,            to: 'users#create'
+  post 'login',                 to: 'sessions#create'
+
+  delete 'logout',              to: 'sessions#destroy'
+  delete 'users/:id(.:format)', to: 'users#destroy'
+
+  get 'login',                  to: 'sessions#new'
+  get 'attendance/show'
   get 'users/index'
   get 'users/add'
-  post 'users/add' , to: 'users#create'
-  delete 'users/:id(.:format)', to: 'users#destroy'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -13,13 +16,16 @@ Rails.application.routes.draw do
   namespace 'api' do
     namespace 'v1' do
       resources :admins
-      resources :students
-      resources :users
       resources :session
+      resources :users
+      resources :attendances
 
 
-      post 'session', to: 'session#create', as: 'login'
-      delete 'session', to: 'session#destroy', as: 'logout'
+      post "/login"    => "session#create"
+      delete "/logout" => "session#destroy"
+
+      post 'attendance', to: 'attendances#create'
+      get 'attendance',  to: 'attendances#index'
 
       end
   end
