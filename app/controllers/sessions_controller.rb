@@ -22,6 +22,6 @@ class SessionsController < ApplicationController
 
   private
     def check_session
-      redirect_to users_index_path unless current_user.blank?
+      redirect_to users_index_path unless current_admin.blank?
     end
 end
